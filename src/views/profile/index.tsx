@@ -512,9 +512,7 @@ const ProfilePage = () => {
           {(() => {
             const activeConfig =
               userInfo?.configs?.length > 0
-                ? userInfo.configs.reduce((latest, current) =>
-                    current.id > latest.id ? current : latest
-                  )
+                ? userInfo.configs.find((config) => config.is_active) || null
                 : null;
 
             if (!activeConfig) {
@@ -612,7 +610,7 @@ const ProfilePage = () => {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
-                      }
+                      },
                     )}
                   </div>
                 )}
@@ -648,12 +646,12 @@ const ProfilePage = () => {
                 window.Telegram?.WebApp?.showAlert
               ) {
                 window.Telegram.WebApp.showAlert(
-                  "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN."
+                  "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN.",
                 );
               } else {
                 if (window.Telegram?.WebApp?.showAlert) {
                   window.Telegram.WebApp.showAlert(
-                    "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN."
+                    "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN.",
                   );
                 }
               }
@@ -693,7 +691,7 @@ const ProfilePage = () => {
               transition:
                 "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
-            onClick={e => e.target === e.currentTarget && closeModal()}
+            onClick={(e) => e.target === e.currentTarget && closeModal()}
           >
             <section
               role="dialog"
@@ -839,7 +837,7 @@ const ProfilePage = () => {
               transition:
                 "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
-            onClick={e => e.target === e.currentTarget && closeModal()}
+            onClick={(e) => e.target === e.currentTarget && closeModal()}
           >
             <section
               role="dialog"
@@ -982,7 +980,7 @@ const ProfilePage = () => {
               transition:
                 "background 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
             }}
-            onClick={e => e.target === e.currentTarget && closeModal()}
+            onClick={(e) => e.target === e.currentTarget && closeModal()}
           >
             <section
               role="dialog"

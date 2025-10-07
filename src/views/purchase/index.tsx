@@ -158,7 +158,7 @@ if (
 const PurchasePage = () => {
   const [selectedTariff, setSelectedTariff] = useState<Tariff | null>(null);
   const [selectedProvider, setSelectedProvider] = useState<PaymentProvider>(
-    PaymentProvider.YOOKASSA
+    PaymentProvider.YOOKASSA,
   );
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [isPaymentModalVisible, setIsPaymentModalVisible] = useState(false);
@@ -236,7 +236,7 @@ const PurchasePage = () => {
 
   useEffect(() => {
     if (tariffs && tariffs.length > 0 && !selectedTariff) {
-      const sixMonthTariff = tariffs.find(tariff => tariff.months === 6);
+      const sixMonthTariff = tariffs.find((tariff) => tariff.months === 6);
       if (sixMonthTariff) {
         setSelectedTariff(sixMonthTariff);
       }
@@ -261,12 +261,12 @@ const PurchasePage = () => {
             window.Telegram?.WebApp?.showAlert
           ) {
             window.Telegram.WebApp.showAlert(
-              `Ошибка обработки платежа: ${error instanceof Error ? error.message : "Неизвестная ошибка"}`
+              `Ошибка обработки платежа: ${error instanceof Error ? error.message : "Неизвестная ошибка"}`,
             );
           } else {
             if (window.Telegram?.WebApp?.showAlert) {
               window.Telegram.WebApp.showAlert(
-                `Ошибка обработки платежа: ${error instanceof Error ? error.message : "Неизвестная ошибка"}`
+                `Ошибка обработки платежа: ${error instanceof Error ? error.message : "Неизвестная ошибка"}`,
               );
             }
           }
@@ -297,7 +297,7 @@ const PurchasePage = () => {
 
         if (balancePurchaseResponse.expiry_date) {
           const expiryDate = new Date(
-            balancePurchaseResponse.expiry_date
+            balancePurchaseResponse.expiry_date,
           ).toLocaleDateString("ru-RU", {
             day: "numeric",
             month: "long",
@@ -362,7 +362,7 @@ const PurchasePage = () => {
   const handleProceedToPayment = () => {
     if (selectedTariff) {
       trackEvent(
-        AnalyticsEvents.BUTTON_CLICK("proceed_to_payment", "purchase")
+        AnalyticsEvents.BUTTON_CLICK("proceed_to_payment", "purchase"),
       );
       setShowPaymentModal(true);
       setIsPaymentModalClosing(false);
@@ -469,7 +469,7 @@ const PurchasePage = () => {
             Выберите подходящий тариф для вашей VPN подписки
           </p>
           <div className="OrderPage__buttons">
-            {tariffs.map(tariff => (
+            {tariffs.map((tariff) => (
               <TariffCard
                 key={tariff.id}
                 tariff={tariff}
@@ -510,7 +510,7 @@ const PurchasePage = () => {
           >
             <div
               className="w-full max-h-[85vh] overflow-y-auto"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               style={{
                 animation: isPaymentModalClosing
                   ? "paymentModalBounceOut 0.4s cubic-bezier(0.4, 0, 0.2, 1)"
@@ -554,11 +554,11 @@ const PurchasePage = () => {
                       willChange: "transform",
                       backfaceVisibility: "hidden",
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       e.currentTarget.style.animation =
                         "paymentModalCloseButtonHover 0.3s ease-out";
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       e.currentTarget.style.animation = "none";
                     }}
                   >
@@ -582,7 +582,7 @@ const PurchasePage = () => {
                     до{" "}
                     {new Date(
                       Date.now() +
-                        selectedTariff.months * 30 * 24 * 60 * 60 * 1000
+                        selectedTariff.months * 30 * 24 * 60 * 60 * 1000,
                     ).toLocaleDateString("ru-RU", {
                       day: "numeric",
                       month: "long",
@@ -634,15 +634,15 @@ const PurchasePage = () => {
                     willChange: "transform",
                     backfaceVisibility: "hidden",
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.animation =
                       "paymentMethodButtonHover 0.3s ease-out";
                   }}
-                  onMouseLeave={e => {
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.animation = "none";
                     e.currentTarget.style.transform = "scale(1) translateY(0)";
                   }}
-                  onMouseDown={e => {
+                  onMouseDown={(e) => {
                     e.currentTarget.style.animation =
                       "paymentMethodButtonClick 0.2s ease-out";
                   }}
@@ -675,15 +675,17 @@ const PurchasePage = () => {
                     if (selectedTariff) {
                       setIsProcessingBalancePayment(true);
                       try {
-                        await new Promise(resolve => setTimeout(resolve, 3000));
+                        await new Promise((resolve) =>
+                          setTimeout(resolve, 3000),
+                        );
                         await purchaseWithBalance(
                           selectedTariff.months,
-                          BalanceType.REAL
+                          BalanceType.REAL,
                         );
                       } catch (error) {
                         openStatusWindow(
                           false,
-                          error instanceof Error ? error.message : "error"
+                          error instanceof Error ? error.message : "error",
                         );
                       } finally {
                         setIsProcessingBalancePayment(false);
@@ -701,17 +703,17 @@ const PurchasePage = () => {
                     willChange: "transform",
                     backfaceVisibility: "hidden",
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter={(e) => {
                     if (!isProcessingBalancePayment) {
                       e.currentTarget.style.animation =
                         "paymentMethodButtonHover 0.3s ease-out";
                     }
                   }}
-                  onMouseLeave={e => {
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.animation = "none";
                     e.currentTarget.style.transform = "scale(1) translateY(0)";
                   }}
-                  onMouseDown={e => {
+                  onMouseDown={(e) => {
                     if (!isProcessingBalancePayment) {
                       e.currentTarget.style.animation =
                         "paymentMethodButtonClick 0.2s ease-out";
@@ -764,15 +766,15 @@ const PurchasePage = () => {
                     willChange: "transform",
                     backfaceVisibility: "hidden",
                   }}
-                  onMouseEnter={e => {
+                  onMouseEnter={(e) => {
                     e.currentTarget.style.animation =
                       "paymentMethodButtonHover 0.3s ease-out";
                   }}
-                  onMouseLeave={e => {
+                  onMouseLeave={(e) => {
                     e.currentTarget.style.animation = "none";
                     e.currentTarget.style.transform = "scale(1) translateY(0)";
                   }}
-                  onMouseDown={e => {
+                  onMouseDown={(e) => {
                     e.currentTarget.style.animation =
                       "paymentMethodButtonClick 0.2s ease-out";
                   }}

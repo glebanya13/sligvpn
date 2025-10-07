@@ -6,7 +6,7 @@ import { UserProvider } from "./contexts/user.context";
 
 const AppRoutes = memo(() => (
   <Routes>
-    {createRoutes().map(route => (
+    {createRoutes().map((route) => (
       <Route key={route.path} path={route.path} element={route.element} />
     ))}
   </Routes>

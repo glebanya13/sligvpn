@@ -28,7 +28,7 @@ export const useApi = <T>() => {
   });
 
   const execute = useCallback(async (apiCall: () => Promise<T>) => {
-    setState(prev => ({ ...prev, loading: true, error: null }));
+    setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
       const data = await apiCall();
@@ -76,7 +76,7 @@ export const usePurchase = () => {
     (purchaseData: PurchaseRequest) => {
       return execute(() => apiClient.createPurchase(purchaseData));
     },
-    [execute]
+    [execute],
   );
 
   return { purchaseResponse: data, loading, error, createPurchase, reset };
@@ -88,10 +88,10 @@ export const useBalancePurchase = () => {
   const purchaseWithBalance = useCallback(
     (months: number, balanceType: BalanceType = BalanceType.REAL) => {
       return execute(() =>
-        apiClient.purchaseWithBalance({ months, balance_type: balanceType })
+        apiClient.purchaseWithBalance({ months, balance_type: balanceType }),
       );
     },
-    [execute]
+    [execute],
   );
 
   return {
@@ -144,7 +144,7 @@ export const useWithdrawReferral = () => {
     (withdrawData: WithdrawRequest) => {
       return execute(() => apiClient.withdrawReferralBalance(withdrawData));
     },
-    [execute]
+    [execute],
   );
 
   return { withdrawResponse: data, loading, error, withdrawReferral, reset };
@@ -171,7 +171,7 @@ export const useMarkPreviewOpened = () => {
     (opened: boolean) => {
       return execute(() => apiClient.markPreviewOpened(opened));
     },
-    [execute]
+    [execute],
   );
 
   return { result: data, loading, error, markPreviewOpened, reset };
@@ -185,7 +185,7 @@ export const useBalanceCheck = () => {
     (months: number) => {
       return execute(() => apiClient.checkBalance(months));
     },
-    [execute]
+    [execute],
   );
 
   return { result: data, loading, error, checkBalance, reset };

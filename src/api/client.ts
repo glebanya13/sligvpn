@@ -133,7 +133,7 @@ class ApiClient {
 
   private async request<T>(
     endpoint: string,
-    options: RequestInit = {}
+    options: RequestInit = {},
   ): Promise<T> {
     const url = `${API_BASE_URL}${endpoint}`;
 
@@ -148,7 +148,7 @@ class ApiClient {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       throw new Error(
-        errorData.detail || `HTTP error! status: ${response.status}`
+        errorData.detail || `HTTP error! status: ${response.status}`,
       );
     }
 
@@ -162,7 +162,7 @@ class ApiClient {
   async getUserInfo(): Promise<UserInfo> {
     if (!window.Telegram?.WebApp?.initData) {
       throw new Error(
-        "Не удалось получить данные Telegram. Откройте приложение через Telegram. Если проблема сохраняется — обратитесь в поддержку: https://t.me/SligVPNHelp"
+        "Не удалось получить данные Telegram. Откройте приложение через Telegram. Если проблема сохраняется — обратитесь в поддержку: https://t.me/SligVPNHelp",
       );
     }
 
@@ -219,7 +219,7 @@ class ApiClient {
           provider: PaymentProvider.YOOKASSA,
           status: PaymentStatus.COMPLETED,
           created_at: new Date(
-            Date.now() - 2 * 24 * 60 * 60 * 1000
+            Date.now() - 2 * 24 * 60 * 60 * 1000,
           ).toISOString(),
         },
         {
@@ -229,7 +229,7 @@ class ApiClient {
           provider: PaymentProvider.STARS,
           status: PaymentStatus.COMPLETED,
           created_at: new Date(
-            Date.now() - 5 * 24 * 60 * 60 * 1000
+            Date.now() - 5 * 24 * 60 * 60 * 1000,
           ).toISOString(),
         },
         {
@@ -247,7 +247,7 @@ class ApiClient {
           provider: PaymentProvider.BALANCE,
           status: PaymentStatus.COMPLETED,
           created_at: new Date(
-            Date.now() - 7 * 24 * 60 * 60 * 1000
+            Date.now() - 7 * 24 * 60 * 60 * 1000,
           ).toISOString(),
         },
       ];
@@ -262,7 +262,7 @@ class ApiClient {
   }
 
   async withdrawReferralBalance(
-    data: WithdrawRequest
+    data: WithdrawRequest,
   ): Promise<{ ok: boolean; message: string }> {
     return this.request("/api/referral/withdraw", {
       method: "POST",
@@ -275,7 +275,7 @@ class ApiClient {
   }
 
   async markPreviewOpened(
-    opened: boolean
+    opened: boolean,
   ): Promise<{ success: boolean; user_id: number; preview_opened: boolean }> {
     return this.request("/api/webapp/preview/opened", {
       method: "POST",
@@ -288,7 +288,7 @@ class ApiClient {
   }
 
   async getBalanceHistory(
-    params: BalanceHistoryParams = {}
+    params: BalanceHistoryParams = {},
   ): Promise<BalanceHistoryResponse> {
     const searchParams = new URLSearchParams();
 

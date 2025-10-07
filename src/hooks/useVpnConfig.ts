@@ -16,19 +16,22 @@ export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
       return null;
     }
 
-    const latestConfig = userInfo.configs.reduce((latest, current) =>
-      current.id > latest.id ? current : latest
-    );
+    const activeConfig =
+      userInfo.configs.find((config: any) => config.is_active) || null;
+
+    if (!activeConfig) {
+      return null;
+    }
 
     if (
-      latestConfig.expiry_date &&
-      new Date(latestConfig.expiry_date) < new Date()
+      activeConfig.expiry_date &&
+      new Date(activeConfig.expiry_date) < new Date()
     ) {
       return null;
     }
 
     const baseUrl = "https://connect.sligvpn.ru/fastconnect";
-    const configUrl = latestConfig.config_link;
+    const configUrl = activeConfig.config_link;
 
     let protocol: string;
 
@@ -61,19 +64,22 @@ export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
         return null;
       }
 
-      const latestConfig = userInfo.configs.reduce((latest, current) =>
-        current.id > latest.id ? current : latest
-      );
+      const activeConfig =
+        userInfo.configs.find((config: any) => config.is_active) || null;
+
+      if (!activeConfig) {
+        return null;
+      }
 
       if (
-        latestConfig.expiry_date &&
-        new Date(latestConfig.expiry_date) < new Date()
+        activeConfig.expiry_date &&
+        new Date(activeConfig.expiry_date) < new Date()
       ) {
         return null;
       }
 
       const baseUrl = "https://connect.sligvpn.ru/fastconnect";
-      const configUrl = latestConfig.config_link;
+      const configUrl = activeConfig.config_link;
 
       let protocol: string;
 
@@ -93,7 +99,7 @@ export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
 
       return `${baseUrl}?url=${protocol}${configUrl}`;
     },
-    [userInfo]
+    [userInfo],
   );
 
   return {

@@ -20,7 +20,7 @@ const BalanceHistoryList: React.FC<BalanceHistoryListProps> = ({
   const formatAmount = (
     amount: number,
     currency: string,
-    isPositive: boolean
+    isPositive: boolean,
   ) => {
     const sign = isPositive ? "+" : "-";
     const currencySymbol = currency === Currency.RUB ? "₽" : currency;
@@ -86,7 +86,7 @@ const BalanceHistoryList: React.FC<BalanceHistoryListProps> = ({
 
   return (
     <div className="balance-history-list">
-      {history.map(item => (
+      {history.map((item) => (
         <div
           key={item.id}
           className={`balance-history-item ${item.is_positive ? "positive" : "negative"}`}

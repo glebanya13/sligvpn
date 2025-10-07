@@ -31,13 +31,13 @@ export const usePaymentHistory = () => {
         setError(
           err instanceof Error
             ? err.message
-            : "Ошибка загрузки истории платежей"
+            : "Ошибка загрузки истории платежей",
         );
       } finally {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   const loadMore = useCallback(async () => {
@@ -50,13 +50,13 @@ export const usePaymentHistory = () => {
         limit: pagination.limit,
         offset: pagination.offset + pagination.limit,
       });
-      setHistory(prev => [...prev, ...response.history]);
+      setHistory((prev) => [...prev, ...response.history]);
       setPagination(response.pagination);
     } catch (err) {
       setError(
         err instanceof Error
           ? err.message
-          : "Ошибка загрузки дополнительных записей"
+          : "Ошибка загрузки дополнительных записей",
       );
     } finally {
       setLoading(false);

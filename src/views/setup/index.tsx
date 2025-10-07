@@ -149,7 +149,7 @@ const SetupPage = () => {
     } else {
       if (window.Telegram?.WebApp?.showAlert) {
         window.Telegram.WebApp.showAlert(
-          "Конфигурация недоступна. Пожалуйста, купите подписку."
+          "Конфигурация недоступна. Пожалуйста, купите подписку.",
         );
       }
     }
@@ -340,7 +340,7 @@ const SetupPage = () => {
                 } else {
                   if (window.Telegram?.WebApp?.showAlert) {
                     window.Telegram.WebApp.showAlert(
-                      "Конфигурация недоступна. Пожалуйста, купите подписку."
+                      "Конфигурация недоступна. Пожалуйста, купите подписку.",
                     );
                   }
                 }

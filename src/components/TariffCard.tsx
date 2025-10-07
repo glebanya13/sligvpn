@@ -36,7 +36,7 @@ const TariffCard = memo(
         )}
       </div>
     );
-  }
+  },
 );
 
 TariffCard.displayName = "TariffCard";

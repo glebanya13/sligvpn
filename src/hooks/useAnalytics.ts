@@ -115,7 +115,7 @@ class AnalyticsService {
               label: data.label,
               value: data.value,
               ...data.customData,
-            }
+            },
           );
         } else if (type === "error") {
           window.ym(
@@ -127,7 +127,7 @@ class AnalyticsService {
               component: data.component,
               action: data.action,
               ...data.customData,
-            }
+            },
           );
         }
       } catch (err) {}
@@ -140,7 +140,7 @@ class AnalyticsService {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ type, data }),
-      }).catch(err => {});
+      }).catch((err) => {});
     }
   }
 
@@ -228,7 +228,7 @@ export const AnalyticsEvents = {
     provider: string,
     amount: number,
     months: number,
-    isFirstPurchase?: boolean
+    isFirstPurchase?: boolean,
   ) => ({
     action: AnalyticsAction.PAYMENT_STARTED,
     category: AnalyticsCategory.PAYMENT,
@@ -245,7 +245,7 @@ export const AnalyticsEvents = {
     provider: string,
     amount: number,
     months: number,
-    isFirstPurchase?: boolean
+    isFirstPurchase?: boolean,
   ) => ({
     action: AnalyticsAction.PAYMENT_SUCCESS,
     category: AnalyticsCategory.PAYMENT,

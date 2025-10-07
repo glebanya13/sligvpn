@@ -49,7 +49,7 @@ const PaymentMethodSelector = memo(
       <div className="payment-method-selector">
         <h3 className="text-lg font-semibold text-white mb-4">Способ оплаты</h3>
         <div className="grid gap-3">
-          {paymentMethods.map(method => (
+          {paymentMethods.map((method) => (
             <div
               key={method.id}
               className={`payment-method-item p-4 rounded-xl ${
@@ -86,7 +86,7 @@ const PaymentMethodSelector = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 PaymentMethodSelector.displayName = "PaymentMethodSelector";

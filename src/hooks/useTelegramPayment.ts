@@ -60,7 +60,7 @@ export const useTelegramPayment = () => {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
-              }
+              },
             );
             message += `\n\n📅 Подписка действует до: ${expiryDate}`;
           }
@@ -113,7 +113,7 @@ export const useTelegramPayment = () => {
         return false;
       }
     },
-    [trackEvent, trackError, isFirstPurchase, fetchUserInfo]
+    [trackEvent, trackError, isFirstPurchase, fetchUserInfo],
   );
 
   const startPaymentStatusCheck = useCallback(
@@ -135,10 +135,10 @@ export const useTelegramPayment = () => {
             localStorage.removeItem("pending_payment_id");
           }
         },
-        10 * 60 * 1000
+        10 * 60 * 1000,
       );
     },
-    [checkPaymentStatus]
+    [checkPaymentStatus],
   );
 
   const handleStarsPayment = useCallback(
@@ -181,14 +181,14 @@ export const useTelegramPayment = () => {
         throw error;
       }
     },
-    [startPaymentStatusCheck]
+    [startPaymentStatusCheck],
   );
 
   const handleYooKassaPayment = useCallback(
     (purchaseResponse: PurchaseResponse) => {
       if (purchaseResponse.provider !== PaymentProvider.YOOKASSA) {
         throw new Error(
-          `Invalid payment provider: ${purchaseResponse.provider}`
+          `Invalid payment provider: ${purchaseResponse.provider}`,
         );
       }
 
@@ -221,14 +221,14 @@ export const useTelegramPayment = () => {
         }
       }
     },
-    []
+    [],
   );
 
   const handleCryptoPayment = useCallback(
     (purchaseResponse: PurchaseResponse) => {
       if (purchaseResponse.provider !== PaymentProvider.CRYPTO) {
         throw new Error(
-          `Invalid payment provider: ${purchaseResponse.provider}`
+          `Invalid payment provider: ${purchaseResponse.provider}`,
         );
       }
 
@@ -259,7 +259,7 @@ export const useTelegramPayment = () => {
         }
       }
     },
-    []
+    [],
   );
 
   const handleBalancePayment = useCallback(
@@ -296,7 +296,7 @@ export const useTelegramPayment = () => {
 
         if (purchaseResponse.expiry_date) {
           const expiryDate = new Date(
-            purchaseResponse.expiry_date
+            purchaseResponse.expiry_date,
           ).toLocaleDateString("ru-RU", {
             day: "numeric",
             month: "long",
@@ -323,7 +323,7 @@ export const useTelegramPayment = () => {
         throw new Error("Balance payment failed");
       }
     },
-    [isFirstPurchase, fetchUserInfo]
+    [isFirstPurchase, fetchUserInfo],
   );
 
   const checkPendingPayment = useCallback(async () => {
@@ -356,7 +356,7 @@ export const useTelegramPayment = () => {
           return handleBalancePayment(purchaseResponse);
         default:
           throw new Error(
-            `Unsupported payment provider: ${purchaseResponse.provider}`
+            `Unsupported payment provider: ${purchaseResponse.provider}`,
           );
       }
     },
@@ -365,11 +365,11 @@ export const useTelegramPayment = () => {
       handleYooKassaPayment,
       handleCryptoPayment,
       handleBalancePayment,
-    ]
+    ],
   );
 
   const closePaymentModal = useCallback(() => {
-    setPaymentModal(prev => ({ ...prev, isOpen: false }));
+    setPaymentModal((prev) => ({ ...prev, isOpen: false }));
   }, []);
 
   return {

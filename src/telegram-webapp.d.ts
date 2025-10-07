@@ -48,7 +48,7 @@ interface TelegramWebApp {
   };
   HapticFeedback?: {
     impactOccurred: (
-      style: "light" | "medium" | "heavy" | "rigid" | "soft"
+      style: "light" | "medium" | "heavy" | "rigid" | "soft",
     ) => void;
     notificationOccurred: (type: "error" | "success" | "warning") => void;
     selectionChanged: () => void;
@@ -121,18 +121,18 @@ interface TelegramWebApp {
         text: string;
       }>;
     },
-    callback?: (buttonId: string) => void
+    callback?: (buttonId: string) => void,
   ) => void;
   showAlert: (message: string, callback?: () => void) => void;
   showConfirm: (
     message: string,
-    callback?: (confirmed: boolean) => void
+    callback?: (confirmed: boolean) => void,
   ) => void;
   showScanQrPopup: (
     params: {
       text?: string;
     },
-    callback?: (data: string) => void
+    callback?: (data: string) => void,
   ) => void;
   closeScanQrPopup: () => void;
   readTextFromClipboard: (callback?: (data: string) => void) => void;
@@ -143,12 +143,12 @@ interface TelegramWebApp {
       first_name: string;
       last_name?: string;
       user_id?: number;
-    }) => void
+    }) => void,
   ) => void;
   invokeCustomMethod: (
     method: string,
     params?: any,
-    callback?: (result: any) => void
+    callback?: (result: any) => void,
   ) => void;
   invokeCustomMethodAsync: (method: string, params?: any) => Promise<any>;
   isClosingConfirmationEnabled: boolean;

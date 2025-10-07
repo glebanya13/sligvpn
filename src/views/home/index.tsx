@@ -130,12 +130,12 @@ const HomePage = () => {
 
       if (typeof window !== "undefined" && window.Telegram?.WebApp?.showAlert) {
         window.Telegram.WebApp.showAlert(
-          "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN."
+          "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN.",
         );
       } else {
         if (window.Telegram?.WebApp?.showAlert) {
           window.Telegram.WebApp.showAlert(
-            "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN."
+            "У вас еще нет активной подписки. Сначала купите подписку, а затем переходите к настройке VPN.",
           );
         }
       }
@@ -149,7 +149,7 @@ const HomePage = () => {
         android: "/setup/android",
         desktop: "/setup/android",
       })[deviceType],
-    [deviceType]
+    [deviceType],
   );
 
   const purchaseText = useMemo(
@@ -159,7 +159,7 @@ const HomePage = () => {
         android: "для Android",
         desktop: "для Desktop",
       })[deviceType],
-    [deviceType]
+    [deviceType],
   );
 
   const getPurchaseButtonText = () => {

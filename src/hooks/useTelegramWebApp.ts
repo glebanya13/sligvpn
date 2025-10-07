@@ -39,7 +39,7 @@ export const useTelegramWebApp = () => {
         window.Telegram.WebApp.HapticFeedback.impactOccurred(style);
       }
     },
-    []
+    [],
   );
 
   useEffect(() => {

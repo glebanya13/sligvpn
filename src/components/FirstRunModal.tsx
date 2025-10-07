@@ -15,7 +15,7 @@ interface ButtonPosition {
 
 const FirstRunModal = ({ isOpen, onClose }: FirstRunModalProps) => {
   const [buttonPosition, setButtonPosition] = useState<ButtonPosition | null>(
-    null
+    null,
   );
 
   useEffect(() => {
