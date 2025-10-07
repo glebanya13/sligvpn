@@ -1,0 +1,132 @@
+/* Базовые стили для модальных окон */
+.payment-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-modal-overlay--open {
+  display: flex;
+}
+
+.payment-modal,
+.modal {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display: none;
+}
+
+.payment-modal--open,
+.modal--open {
+  display: block;
+}
+
+.payment-modal-content {
+  background: rgba(26, 26, 26, 0.95);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.payment-modal-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Стили для кнопок в модальных окнах */
+.payment-modal-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.payment-modal-button--primary {
+  background: linear-gradient(135deg, #00a878 0%, #008a6b 100%);
+  color: white;
+}
+
+.payment-modal-button--primary:hover {
+  background: linear-gradient(135deg, #00b884 0%, #009a75 100%);
+  transform: scale(1.02);
+}
+
+.payment-modal-button--primary:active {
+  transform: scale(0.98);
+}
+
+.payment-modal-button--secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.payment-modal-button--secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+}
+
+.payment-modal-button--secondary:active {
+  transform: scale(0.98);
+}
+
+/* Стили для текста в модальных окнах */
+.payment-modal-text {
+  color: white;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+/* Стили для иконок в модальных окнах */
+.payment-modal-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Стили для кнопок в модальных окнах */
+.payment-payment-modal-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Мобильные стили */
+@media (max-width: 600px) {
+  .payment-modal-content {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .payment-modal-title {
+    font-size: 1.125rem;
+  }
+
+  .payment-modal-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .payment-payment-modal-buttons {
+    flex-direction: column;
+  }
+
+  .payment-payment-modal-buttons .payment-modal-button {
+    width: 100%;
+  }
+}

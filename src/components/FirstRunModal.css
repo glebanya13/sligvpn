@@ -1,0 +1,40 @@
+/* Анимация для модального окна */
+.first-run-modal {
+  animation: slideUp 0.3s ease-out;
+  z-index: 1000; /* Высокий z-index для отображения поверх всех элементов */
+  position: fixed; /* Фиксированное позиционирование */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* Не блокируем клики по элементам под модальным окном */
+}
+
+.first-run-overlay {
+  animation: fadeIn 0.3s ease-out;
+  z-index: 999; /* z-index для overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Увеличено затемнение */
+  box-shadow: inset 0 -10px 20px rgba(255, 255, 255, 0.1); /* 10px света внизу */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,493 @@
+.HomePage__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.HomePage__frogWrap {
+  position: relative;
+  z-index: 5;
+}
+
+.HomePage__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 120px;
+  width: 120px;
+}
+
+.logo-text {
+  position: absolute;
+  font-size: 64px;
+  color: rgba(255, 255, 255, 0.08);
+  font-weight: bold;
+  z-index: 0;
+  margin-top: 10px;
+}
+
+.logo-image {
+  width: 100px;
+  height: auto;
+  z-index: 1;
+}
+
+.frog-container {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  z-index: 3;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.frog-image {
+  width: 140px;
+  height: auto;
+}
+
+.HomePage__bottom {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 40px;
+  margin-top: -50px;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s;
+}
+
+.HomePageBottom__head {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.HomePageBottom__headRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.HomePageBottom__headRow img {
+  width: 68px;
+  height: 16px;
+}
+
+/* Фиксированная высота для правой части с датой */
+.subscription-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.Button1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  min-width: 80px;
+  height: 54px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    opacity 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+  background:
+    radial-gradient(
+      120% 140% at 50% 50%,
+      rgba(0, 168, 120, 0.2) 0%,
+      rgba(0, 168, 120, 0.08) 45%,
+      rgba(0, 168, 120, 0.02) 70%,
+      rgba(0, 0, 0, 0) 75%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(8, 24, 20, 0.98) 0%,
+      rgba(10, 26, 22, 0.98) 100%
+    );
+  color: #ffffff;
+  border: 1px solid rgba(0, 168, 120, 0.35);
+  width: 100%;
+  gap: 8px;
+}
+
+.Button1:hover {
+  background:
+    radial-gradient(
+      120% 140% at 50% 50%,
+      rgba(0, 168, 120, 0.26) 0%,
+      rgba(0, 168, 120, 0.12) 45%,
+      rgba(0, 168, 120, 0.04) 70%,
+      rgba(0, 0, 0, 0) 75%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(10, 30, 26, 0.98) 0%,
+      rgba(12, 32, 28, 0.98) 100%
+    );
+  border-color: rgba(0, 168, 120, 0.45);
+}
+
+.Button1:active {
+  transform: scale(0.97);
+}
+
+.Button1 img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.HomePageBottom__bodyButton {
+  margin-bottom: 10px;
+}
+
+.HomePageSetupButton--animated {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.HomePageBottom__sepupButtonDeviceIcon--text {
+  font-size: 12px;
+}
+
+.HomePageBottom__sepupButtonDeviceIcon--icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.HomePageBottom__row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ripple-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(0, 168, 120, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  animation: ripple-wave 12s infinite ease-out;
+}
+
+.ripple:nth-child(1) {
+  animation-delay: 0s;
+}
+.ripple:nth-child(2) {
+  animation-delay: 1.5s;
+}
+.ripple:nth-child(3) {
+  animation-delay: 3s;
+}
+.ripple:nth-child(4) {
+  animation-delay: 4.5s;
+}
+.ripple:nth-child(5) {
+  animation-delay: 6s;
+}
+
+.ripple:nth-child(6) {
+  animation-delay: 7.5s;
+}
+.ripple:nth-child(7) {
+  animation-delay: 9s;
+}
+.ripple:nth-child(8) {
+  animation-delay: 10.5s;
+}
+.ripple:nth-child(9) {
+  animation-delay: 12s;
+}
+
+@keyframes ripple-wave {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(8);
+    opacity: 0;
+  }
+}
+
+/* Плавные анимации для главного меню */
+.text-transition {
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-transition.fadeOut {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.text-transition.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  animation: smoothSlideIn 0.5s ease-out;
+}
+
+/* Специальные анимации для разных элементов */
+.HomePage__top.text-transition.fadeIn {
+  animation: logoSlideIn 0.6s ease-out;
+}
+
+.text-transition.fadeIn:has(.frog-image) {
+  animation: frogSlideIn 0.7s ease-out;
+}
+
+.HomePage__bottom.text-transition.fadeIn {
+  animation: contentSlideUp 0.6s ease-out;
+}
+
+@keyframes smoothSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes frogSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contentSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимации появления - ОТКЛЮЧЕНЫ */
+.fade-out {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+.fade-in-delay-1 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+.fade-in-delay-2 {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация для логотипа */
+.HomePage__top.fade-in {
+  animation: logoAppear 0.8s ease-out both;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Анимация для лягушки */
+.fade-in-delay-1 {
+  animation: frogBounce 0.8s ease-out 0.2s both;
+}
+
+@keyframes frogBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Анимация для нижней панели */
+.HomePage__bottom.fade-in-delay-2 {
+  animation: contentSlideUp 0.8s ease-out 0.4s both;
+}
+
+/* ПРИНУДИТЕЛЬНАЯ ВИДИМОСТЬ - ВСЕ ЭЛЕМЕНТЫ ВИДИМЫ */
+.HomePage > div {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation: none !important;
+}
+
+/* Новые анимации появления */
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.fade-in-delay-1 {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out 0.2s,
+    transform 0.6s ease-out 0.2s;
+}
+
+.fade-in-delay-2 {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease-out 0.4s,
+    transform 0.6s ease-out 0.4s;
+}
+
+/* Анимация для логотипа с эффектом масштабирования */
+.HomePage__top.fade-in {
+  animation: logoAppear 0.8s ease-out;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Анимация для лягушки с эффектом подпрыгивания */
+.fade-in-delay-1 {
+  animation: frogBounce 0.8s ease-out 0.2s;
+}
+
+@keyframes frogBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Анимация для нижней панели с эффектом выдвижения */
+.HomePage__bottom.fade-in-delay-2 {
+  animation: contentSlideUp 0.8s ease-out 0.4s;
+}
+
+@keyframes contentSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

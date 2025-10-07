@@ -1,0 +1,29 @@
+.payment-method-selector {
+  /* Базовые стили */
+}
+
+.payment-method-item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.payment-method-item:hover {
+  transform: scale(1.02);
+}
+
+.payment-method-item:active {
+  transform: scale(0.97);
+}
+
+/* Убираем выделение текста при касании */
+.payment-method-item {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

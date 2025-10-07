@@ -1,0 +1,266 @@
+.OrderPage {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  background-color: #0006;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  max-width: var(--page-wax-width);
+  overflow: auto;
+}
+
+.OrderPage {
+  .PaymentCard.Button--variant_lighted-right:before {
+    background-position: right -240px center;
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: flex-end;
+  }
+  .modal-overlay.active {
+    display: flex;
+  }
+  .modal-content {
+    background: rgba(26, 26, 26, 0.9);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
+  }
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+  }
+  .modal-content * {
+    color: white !important;
+  }
+  .modal-content p,
+  .modal-content span {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+  }
+  .modal-content button,
+  .modal-content a {
+    font-size: clamp(0.875rem, 3vw, 1rem);
+  }
+  .modal-content .h-54 {
+    height: 3.375rem;
+  }
+
+  @media (max-width: 600px) {
+    .modal-content {
+      padding: 1rem;
+    }
+    .modal-content .px-6 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .modal-content .py-6 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .modal-close {
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.prime .OrderPage {
+  gap: 8px;
+}
+
+@media screen and ((max-height: 640px) or (max-width: 375px)) {
+  .OrderPage {
+    padding: 20px;
+  }
+}
+
+.OrderPage__buttons {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-top: 20px;
+}
+
+.OrderPage__button {
+  position: relative;
+}
+
+.OrderPage__button:before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  transition: 0.8s ease;
+  background-position: center 10px;
+}
+
+.ultima .OrderPage__button:before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzE3IiBoZWlnaHQ9IjMxOSIgdmlld0JveD0iMCAwIDMxNyAzMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfMTIzXzgpIj4KPGVsbGlwc2UgY3g9IjE1OC41IiBjeT0iMTU5LjUiIHJ4PSI2NC41IiByeT0iNjUuNSIgZmlsbD0iIzAwQTg3OCIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2ZfMTIzXzgiIHg9IjAiIHk9IjAiIHdpZHRoPSIzMTciIGhlaWdodD0iMzE5IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+CjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjQ3IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMTIzXzgiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg==);
+}
+
+.prime .OrderPage__button:before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzE3IiBoZWlnaHQ9IjMxOSIgdmlld0JveD0iMCAwIDMxNyAzMTkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfMzE1XzE2KSI+CjxlbGxpcHNlIGN4PSIxNTguNSIgY3k9IjE1OS41IiByeD0iNjQuNSIgcnk9IjY1LjUiIGZpbGw9IiM1Rjc3RkYiLz4KPC9nPgo8ZGVmcz4KPGZpbHRlciBpZD0iZmlsdGVyMF9mXzMxNV8xNiIgeD0iMCIgeT0iMCIgd2lkdGg9IjMxNyIgaGVpZ2h0PSIzMTkiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNDciIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8zMTVfMTYiLz4KPC9maWx0ZXI+CjwvZGVmcz4KPC9zdmc+Cg==);
+}
+
+.OrderPage__button--selected:before {
+  opacity: 1;
+  background-position: center -20px;
+}
+
+.OrderPage__buttonChip,
+.OrderPage__saleChip {
+  display: inline-block;
+  position: absolute;
+  border-radius: 20px;
+  background-color: #ee3f2d;
+  padding: 5px 10px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 10px;
+  text-transform: uppercase;
+  top: 46px;
+}
+
+.OrderPage__saleChip {
+  position: relative;
+  top: -1px;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.OrderPage__buyButton {
+  position: relative;
+}
+
+.OrderPage__buyButton:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-position-y: -60px;
+  background-position-x: center;
+  background-repeat: no-repeat;
+}
+
+.ultima .OrderPage__buyButton:before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzc2IiBoZWlnaHQ9IjIzNiIgdmlld0JveD0iMCAwIDM3NiAyMzYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfMTA0XzE3NSkiPgo8ZWxsaXBzZSBjeD0iMTg4IiBjeT0iMTE4IiByeD0iOTQiIHJ5PSIyNCIgZmlsbD0iIzAwQTg3OCIvPgo8L2c+CjxkZWZzPgo8ZmlsdGVyIGlkPSJmaWx0ZXIwX2ZfMTA0XzE3NSIgeD0iMCIgeT0iMCIgd2lkdGg9IjM3NiIgaGVpZ2h0PSIyMzYiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIj4KPGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz4KPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iNDciIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl8xMDRfMTc1Ii8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=);
+}
+
+.prime .OrderPage__buyButton:before {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzc2IiBoZWlnaHQ9IjIzNiIgdmlld0JveD0iMCAwIDM3NiAyMzYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGZpbHRlcj0idXJsKCNmaWx0ZXIwX2ZfMzEyXzE0KSI+CjxlbGxpcHNlIGN4PSIxODgiIGN5PSIxMTgiIHJ4PSI5NCIgcnk9IjI0IiBmaWxsPSIjNUY3N0ZGIi8+CjwvZz4KPGRlZnM+CjxmaWx0ZXIgaWQ9ImZpbHRlcjBfZl8zMTJfMTQiIHg9IjAiIHk9IjAiIHdpZHRoPSIzNzYiIGhlaWdodD0iMjM2IiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiI+CjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ii8+CjxmZUJsZW5kIG1vZGU9Im5vcm1hbCIgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjQ3IiByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfMzEyXzE0Ii8+CjwvZmlsdGVyPgo8L2RlZnM+Cjwvc3ZnPgo=);
+}
+
+.OrderPage__devicesBlock {
+  margin-top: 20px;
+}
+
+/* Анимации для кнопок способов оплаты */
+.payment-method-button {
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.payment-method-button:hover {
+  transform: scale(1.02);
+}
+
+.payment-method-button:active {
+  transform: scale(0.97);
+}
+
+.payment-method-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.payment-method-button:disabled:hover {
+  transform: none;
+}
+
+/* Анимация спиннера */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@media (max-width: 600px) {
+  .OrderPage {
+    .modal-content {
+      padding: 1rem;
+    }
+    .modal-content .px-6 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .modal-content .py-6 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .modal-close {
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      width: 30px;
+      height: 30px;
+    }
+    .OrderPage {
+      padding: 15px;
+    }
+  }
+}
