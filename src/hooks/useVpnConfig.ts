@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useOsType } from "./useOsType";
 import { OsType } from "../helpers/enum";
+import { generateVpnConnectUrl } from "../helpers/vpnProtocol";
 
 export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
   const osType = useOsType();
@@ -30,26 +31,7 @@ export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
       return null;
     }
 
-    const baseUrl = "https://connect.sligvpn.ru/fastconnect";
-    const configUrl = activeConfig.config_link;
-
-    let protocol: string;
-
-    switch (osType) {
-      case OsType.IOS:
-      case OsType.ANDROID:
-        protocol = "v2raytun://import/";
-        break;
-      case OsType.WINDOWS:
-      case OsType.MACOS:
-      case OsType.LINUX:
-        protocol = "clash://import/";
-        break;
-      default:
-        protocol = "v2raytun://import/";
-    }
-
-    return `${baseUrl}?url=${protocol}${configUrl}`;
+    return generateVpnConnectUrl(activeConfig.config_link, osType);
   }, [userInfo, osType]);
 
   const getVpnConfigUrlForOs = useCallback(
@@ -78,26 +60,7 @@ export const useVpnConfig = (userInfo?: any, loading?: boolean) => {
         return null;
       }
 
-      const baseUrl = "https://connect.sligvpn.ru/fastconnect";
-      const configUrl = activeConfig.config_link;
-
-      let protocol: string;
-
-      switch (targetOs) {
-        case OsType.IOS:
-        case OsType.ANDROID:
-          protocol = "v2raytun://import/";
-          break;
-        case OsType.WINDOWS:
-        case OsType.MACOS:
-        case OsType.LINUX:
-          protocol = "clash://import/";
-          break;
-        default:
-          protocol = "v2raytun://import/";
-      }
-
-      return `${baseUrl}?url=${protocol}${configUrl}`;
+      return generateVpnConnectUrl(activeConfig.config_link, targetOs);
     },
     [userInfo],
   );

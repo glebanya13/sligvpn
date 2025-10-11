@@ -32,10 +32,14 @@ const SetupPage = () => {
     const userAgent = navigator.userAgent.toLowerCase();
 
     if (
-      userAgent.includes("iphone") ||
-      userAgent.includes("ipad") ||
-      userAgent.includes("mac")
+      userAgent.includes("windows") ||
+      userAgent.includes("macintosh") ||
+      userAgent.includes("linux")
     ) {
+      return "https://github.com/Dreamacro/clash/releases";
+    }
+
+    if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
       return "https://apps.apple.com/ru/app/v2raytun/id6476628951";
     } else {
       return "https://play.google.com/store/apps/details?id=com.v2raytun.android&hl=ru";
@@ -289,7 +293,8 @@ const SetupPage = () => {
         >
           <p className="text-xl">Приложение</p>
           <p className="text-default mt-2">
-            Установите приложение v2RayTun <br /> и вернитесь к этому экрану
+            Установите приложение для вашего устройства <br /> и вернитесь к
+            этому экрану
           </p>
           <div className="flex gap-2.5 w-full">
             <button
@@ -327,7 +332,7 @@ const SetupPage = () => {
         >
           <p className="text-xl">Подписка</p>
           <p className="text-default mt-2">
-            Добавьте подписку в приложение <br /> v2RayTun с помощью кнопки ниже
+            Добавьте подписку в приложение <br /> с помощью кнопки ниже
           </p>
           <div className="flex gap-2.5 w-full">
             <button
@@ -456,9 +461,9 @@ const SetupPage = () => {
         </header>
         <div style={{ padding: "0 20px 20px 20px" }}>
           <p>
-            После установки приложения v2RayTun, обязательно вернитесь на этот
-            экран и нажмите «Далее», чтобы добавить конфигурацию в приложение,
-            без этого VPN работать не будет
+            После установки приложения, обязательно вернитесь на этот экран и
+            нажмите «Далее», чтобы добавить конфигурацию в приложение, без этого
+            VPN работать не будет
           </p>
           <button
             className="Button bg-primary text-white h-54 mt-2"
@@ -488,9 +493,9 @@ const SetupPage = () => {
         <div className="subscription-modal-content">
           {getVpnConfigUrl() ? (
             <>
-              <h3 className="subscription-modal-title">Приложение v2RayTun</h3>
+              <h3 className="subscription-modal-title">VPN Приложение</h3>
               <p className="subscription-modal-text">
-                Перейти в приложение v2RayTun для добавления подписки?
+                Перейти в приложение для добавления подписки?
               </p>
 
               <div className="subscription-link-container">
