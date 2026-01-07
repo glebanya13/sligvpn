@@ -6,7 +6,7 @@ import {
   PaymentStatus,
 } from "../helpers/enum";
 
-const API_BASE_URL = "https://receiver.sligvpn.ru:8000";
+const API_BASE_URL = "https://receiver.sligvpn.ru";
 
 export interface ApiResponse<T = any> {
   ok?: boolean;
