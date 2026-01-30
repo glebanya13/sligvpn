@@ -901,8 +901,7 @@ const ProfilePage = () => {
                   </div>
                   <p className="mb-2 mt-4">Ваша реферальная ссылка:</p>
                   {(() => {
-                    const referralLink =
-                      "https://t.me/SligVPN_bot?start=Y0G4WFL2";
+                    const referralLink = "https://t.me/SligVPN_bot?start=" + userInfo?.referral_link || "";
                     return (
                       <button
                         className={`Snippet ${copiedReferral ? "copied" : ""}`}
