@@ -1,4 +1,4 @@
-# 🧠 SligVPN
+# 🌐 SligVPN
 SligVPN is a comprehensive application that provides a secure and reliable way to connect to a Virtual Private Network (VPN). The project utilizes a range of technologies, including React, TypeScript, and Vite, to create a user-friendly and efficient VPN client. The application features a robust set of tools and functionalities, including user authentication, payment processing, and VPN protocol management.
 
 ## 🚀 Features
