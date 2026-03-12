@@ -399,7 +399,7 @@ const PurchasePage = () => {
         provider: selectedProvider,
         months: selectedTariff.months,
         currency:
-          selectedProvider === PaymentProvider.CRYPTO ? "USDT" : undefined,
+          selectedProvider === PaymentProvider.CRYPTO ? "RUB" : undefined,
       });
     } catch (error) {
       if (selectedProvider === PaymentProvider.YOOKASSA) {
