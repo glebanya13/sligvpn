@@ -30,19 +30,31 @@ const SetupPage = () => {
 
   const getAppStoreUrl = () => {
     const userAgent = navigator.userAgent.toLowerCase();
+    const language = navigator.language.toLowerCase();
 
-    if (
-      userAgent.includes("windows") ||
-      userAgent.includes("macintosh") ||
-      userAgent.includes("linux")
-    ) {
-      return "https://github.com/Dreamacro/clash/releases";
+    if (userAgent.includes("android") && userAgent.includes("tv")) {
+      return "https://play.google.com/store/apps/details?id=com.happproxy";
+    }
+
+    if (userAgent.includes("windows")) {
+      return "https://github.com/Happ-proxy/happ-desktop/releases/latest/download/setup-Happ.x64.exe";
+    }
+
+    if (userAgent.includes("macintosh")) {
+      return "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215?l=ru";
+    }
+
+    if (userAgent.includes("linux")) {
+      return "https://happ.su/download";
     }
 
     if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
-      return "https://apps.apple.com/ru/app/v2raytun/id6476628951";
+      if (language.startsWith("ru")) {
+        return "https://apps.apple.com/ru/app/happ-proxy-utility-plus/id6746188973";
+      }
+      return "https://apps.apple.com/us/app/happ-proxy-utility/id6504287215";
     } else {
-      return "https://play.google.com/store/apps/details?id=com.v2raytun.android&hl=ru";
+      return "https://play.google.com/store/apps/details?id=com.happproxy&hl=ru";
     }
   };
 
@@ -380,7 +392,7 @@ const SetupPage = () => {
         >
           <p className="text-xl">Готово!</p>
           <p className="text-default text-balance mt-2">
-            Нажмите на круглую кнопку включения VPN в приложении&nbsp;v2RayTun
+            Нажмите на круглую кнопку включения VPN в приложении Happ
           </p>
           <div className="flex gap-2.5 w-full">
             <button
@@ -464,6 +476,9 @@ const SetupPage = () => {
             После установки приложения, обязательно вернитесь на этот экран и
             нажмите «Далее», чтобы добавить конфигурацию в приложение, без этого
             VPN работать не будет
+          </p>
+          <p style={{ marginTop: "8px", fontSize: "13px", opacity: 0.8 }}>
+            Для Android TV: tv.happ.su или happ.su/download
           </p>
           <button
             className="Button bg-primary text-white h-54 mt-2"

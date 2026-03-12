@@ -50,7 +50,7 @@ export const useTelegramPayment = () => {
             : "🙏 Спасибо за продление! Подписка обновлена.";
 
           if (status.config_link) {
-            message += `\n\n🔗 Конфигурация VPN:\n${status.config_link}\n\nСкопируйте ссылку и откройте в приложении v2RayTun.`;
+            message += `\n\n🔗 Конфигурация VPN:\n${status.config_link}\n\nСкопируйте ссылку и откройте в приложении Happ.`;
           }
 
           if (status.expiry_date) {
