@@ -53,6 +53,7 @@ export interface PurchaseResponse {
   amount: number;
   currency: string;
   payment_url?: string;
+  invoice_url?: string;
   external_id: string;
   invoice?: {
     title: string;

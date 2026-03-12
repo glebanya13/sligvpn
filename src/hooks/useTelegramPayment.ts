@@ -148,7 +148,10 @@ export const useTelegramPayment = () => {
       }
 
       try {
-        if (!purchaseResponse.invoice?.invoice_url) {
+        const invoiceUrl =
+          purchaseResponse.invoice_url || purchaseResponse.invoice?.invoice_url;
+
+        if (!invoiceUrl) {
           throw new Error("Missing invoice URL in Stars payment response");
         }
 
@@ -156,11 +159,19 @@ export const useTelegramPayment = () => {
           purchaseResponse.invoice?.payment_id || purchaseResponse.external_id;
         if (paymentId) {
           localStorage.setItem("pending_payment_id", paymentId);
+          startPaymentStatusCheck(paymentId);
         }
 
-        const invoiceUrl = purchaseResponse.invoice.invoice_url;
-
         if (
+          typeof window !== "undefined" &&
+          window.Telegram?.WebApp?.openInvoice
+        ) {
+          window.Telegram.WebApp.openInvoice(invoiceUrl, (status) => {
+            if (status === "failed" || status === "cancelled") {
+              localStorage.removeItem("pending_payment_id");
+            }
+          });
+        } else if (
           typeof window !== "undefined" &&
           window.Telegram?.WebApp?.openTelegramLink
         ) {
@@ -172,10 +183,6 @@ export const useTelegramPayment = () => {
           window.Telegram.WebApp.openLink(invoiceUrl);
         } else {
           window.open(invoiceUrl, "_blank");
-        }
-
-        if (paymentId) {
-          startPaymentStatusCheck(paymentId);
         }
       } catch (error) {
         throw error;
