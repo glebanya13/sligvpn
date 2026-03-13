@@ -829,7 +829,7 @@ const PurchasePage = () => {
                         await createPurchase({
                           provider: PaymentProvider.CRYPTO,
                           months: selectedTariff?.months || 0,
-                          currency: "USDT",
+                          currency: "RUB",
                         });
                       } catch (error) {
                         setIsProcessingCryptoPayment(false);
